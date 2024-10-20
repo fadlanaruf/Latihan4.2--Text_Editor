@@ -33,10 +33,11 @@ public class TextEditor {
         }
     }
 
+    // Fungsi untuk mengulangi tindakan yang dibatalkan (redo)
     public void redo() {
         if (!redoStack.isEmpty()) {
-            undoStack.push(text.toString());
-            text = new StringBuilder(redoStack.pop());
+            undoStack.push(text.toString()); // Simpan keadaan saat ini ke undo stack
+            text = new StringBuilder(redoStack.pop()); // Kembalikan keadaan yang lebih baru
         } else {
             System.out.println("Tidak ada yang bisa diulang.");
         }
